@@ -2,17 +2,17 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Search, Menu, Bell, User, Home, Library, Puzzle, Settings } from 'lucide-react';
+import { Search, Menu, Bell, User, Home as HomeIcon, Library, Puzzle, Settings } from 'lucide-react';
 import clsx from 'clsx';
 
 const navItems = [
-  { id: 'home', label: 'Home', icon: Home },
+  { id: 'home', label: 'Home', icon: HomeIcon },
   { id: 'library', label: 'Library', icon: Library },
   { id: 'extensions', label: 'Extensions', icon: Puzzle },
   { id: 'settings', label: 'Settings', icon: Settings },
 ];
 
-export default function Home() {
+export default function HomePage() {
   const [currentPage, setCurrentPage] = useState('home');
 
   return (
@@ -124,7 +124,6 @@ export default function Home() {
               Next-generation streaming with dynamic providers, ultra-low latency, and stunning 4K quality.
             </motion.p>
 
-
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -140,7 +139,6 @@ export default function Home() {
             </motion.div>
           </div>
         </motion.section>
-
 
         {/* Continue Watching */}
         <motion.section
@@ -191,7 +189,7 @@ export default function Home() {
                   </div>
                   <div className="absolute top-3 right-3">
                     <span className="flex items-center gap-1 px-2 py-1 bg-black/60 backdrop-blur-md rounded-lg text-xs">
-                      <span>★</span> 8.{i}
+                      <span>8.{i}</span>
                     </span>
                   </div>
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
@@ -206,7 +204,6 @@ export default function Home() {
             ))}
           </div>
         </motion.section>
-
 
         {/* Popular Series */}
         <motion.section
