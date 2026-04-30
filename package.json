@@ -1,38 +1,43 @@
 {
-  "name": "aurastream-pro-web",
+  "name": "aurastream-official",
   "version": "1.0.0",
-  "description": "High-end, plugin-based streaming web application inspired by Cloudstream ecosystem",
-  "private": true,
-  "workspaces": [
-    "client",
-    "server"
-  ],
+  "description": "AuraStream Pro - Monolithic Streaming Platform",
+  "type": "module",
   "scripts": {
-    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
-    "dev:client": "npm run dev --workspace=client",
-    "dev:server": "npm run dev --workspace=server",
-    "build": "npm run build --workspace=client && npm run build --workspace=server",
-    "start": "npm run start --workspace=server",
-    "lint": "npm run lint --workspace=client && npm run lint --workspace=server",
-    "clean": "rm -rf node_modules client/node_modules server/node_modules"
+    "dev": "nodemon src/server.js",
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "cd client && npm install && npm run build",
+    "build:server": "cd server && npm install",
+    "start": "node src/server.js",
+    "lint": "eslint src/ client/"
   },
-  "devDependencies": {
-    "concurrently": "^8.2.2"
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.2.0",
+    "helmet": "^7.1.0",
+    "mongoose": "^8.3.1",
+    "morgan": "^1.10.0",
+    "node-fetch": "^3.3.2",
+    "vm2": "^3.9.19",
+    "winston": "^3.13.0",
+    "next": "14.2.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "hls. js": "^1.5.7",
+    "lucide-react": "^0.372.0",
+    "framer-motion": "^11.0.25",
+    "axios": "^1.6.8",
+    "zustand": "^4.5.2",
+    "clsx": "^2.1.1",
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.1.0"
   },
   "engines": {
     "node": ">=20.0.0",
     "npm": ">=10.0.0"
   },
-  "keywords": [
-    "streaming",
-    "video",
-    "hls",
-    "plugin",
-    "cloudstream",
-    "react",
-    "nextjs",
-    "nodejs"
-  ],
   "author": "AuraStream Team",
   "license": "MIT"
 }

@@ -1,24 +1,15 @@
-import type { Metadata } from 'next';
 import './globals.css';
+import type { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  title: 'AuraStream Pro - Next-Gen Streaming Platform',
-  description: 'High-end, plugin-based streaming web application with dynamic provider engine and ultra-premium UI.',
-  keywords: ['streaming', 'video', 'hls', 'cloudstream', 'plugin', 'movies', 'series'],
-  authors: [{ name: 'AuraStream Team' }],
-  icons: {
-    icon: '/favicon.ico',
-  },
+export const metadata = {
+  title: 'AuraStream Pro - Next-Generation Streaming',
+  description: 'High-end plugin-based streaming platform with dynamic provider engine.',
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="dark">
-      <body className="min-h-screen bg-background text-text-primary antialiased">
+      <body className="min-h-screen bg-[#050505] text-white antialiased">
         {children}
       </body>
     </html>
