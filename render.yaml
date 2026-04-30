@@ -1,0 +1,47 @@
+# Render Blueprint for AuraStream-Pro-Web
+# https://render.com/docs/blueprint-spec
+
+services:
+  # Frontend - Next.js Static Export
+  - type: web
+    name: aurastream-client
+    env: static
+    region: oregon
+    buildCommand: cd client && npm install && npm run build
+    staticPublishPath: client/out
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: public, max-age=0, must-revalidate
+    envVars:
+      - key: NEXT_PUBLIC_API_URL
+        fromService:
+          type: web
+          name: aurastream-api
+          envVarKey: RENDER_EXTERNAL_URL
+      - key: NEXT_PUBLIC_APP_URL
+        sync: false
+
+  # Backend API - Node.js Express Server
+  - type: web
+    name: aurastream-api
+    env: web
+    region: oregon
+    runtime: node
+    buildCommand: cd server && npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    plan: free
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3001
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: GITHUB_TOKEN
+        sync: false
