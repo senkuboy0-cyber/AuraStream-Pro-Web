@@ -1,17 +1,10 @@
 {
   "name": "aurastream-official",
   "version": "1.0.0",
-  "description": "AuraStream Pro - Monolithic Streaming Platform",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
-    "dev:client": "cd client && npm run dev",
-    "dev:server": "nodemon src/server.js",
-    "build": "npm run build:client && npm run build:server",
-    "build:client": "cd client && npm install && npm run build",
-    "build:server": "cd server && npm install",
-    "start": "node src/server.js",
-    "lint": "eslint src/ client/"
+    "build": "cd client && npm install && npm run build",
+    "start": "node server/index.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
@@ -22,7 +15,6 @@
     "mongoose": "^8.3.1",
     "morgan": "^1.10.0",
     "node-fetch": "^3.3.2",
-    "vm2": "^3.9.19",
     "winston": "^3.13.0",
     "next": "14.2.3",
     "react": "^18.3.1",
@@ -38,19 +30,12 @@
     "autoprefixer": "^10.4.19"
   },
   "devDependencies": {
-    "concurrently": "^8.2.2",
-    "nodemon": "^3.1.0",
-    "eslint": "^8.57.0",
     "typescript": "^5.4.5",
     "@types/node": "^20.12.7",
     "@types/react": "^18.3.1",
-    "@types/react-dom": "^18.3.0",
-    "eslint-config-next": "14.2.3"
+    "@types/react-dom": "^18.3.0"
   },
   "engines": {
-    "node": ">=20.0.0",
-    "npm": ">=10.0.0"
-  },
-  "author": "AuraStream Team",
-  "license": "MIT"
+    "node": ">=20.0.0"
+  }
 }
