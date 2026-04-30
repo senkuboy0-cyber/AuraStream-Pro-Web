@@ -315,7 +315,7 @@ export class StreamResolver {
       if (block.trim()) {
         // Replace comma with dot in timestamps
         const lines = block.trim().split('\n');
-        const timestamps = lines[0].replace(',', '.'');
+        const timestamps = lines[0].replace(',', '.');
         
         vtt += timestamps + '\n';
         for (let i = 1; i < lines.length; i++) {
